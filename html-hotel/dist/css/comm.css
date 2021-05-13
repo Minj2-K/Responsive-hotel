@@ -32,12 +32,13 @@
 }
 
 #header #gnb a:hover {
-  color: #a08119;
+  color: #fff;
+  background-color: #a08119;
 }
 
 #header .nav-goto {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   left: 0;
   right: 0;
   /* header에 이미 fixed있어서 relative 필요 없음 */
@@ -47,7 +48,7 @@
 #header .nav-goto .lst-goto {
   overflow: auto;
   /* 떠있는 li 인식시키기 */
-  padding-left: 45px;
+  padding-left: 35px;
 }
 
 #header .nav-goto .lst-goto li {
@@ -128,6 +129,13 @@
   float: left;
 }
 
+.util .col_left li:last-child a::after {
+  content: "\f107";
+  font-family: 'Line Awesome Free';
+  font-weight: 900;
+  margin-left: 10px;
+}
+
 .util .col_right {
   float: right;
 }
@@ -156,13 +164,32 @@
   float: left;
   width: 20%;
   height: 25%;
+  padding: 30px;
   position: relative;
+  -webkit-transition: all .5s;
+  transition: all .5s;
+  overflow: hidden;
+}
+
+.container article h2 {
+  font-size: 1.375em;
+  margin-bottom: 5px;
+}
+
+.container article b {
+  display: block;
+  margin-bottom: 3px;
+  font-size: 1.375em;
+}
+
+.container article p {
+  opacity: 0.7;
 }
 
 .container article:first-child {
   width: 60%;
   height: 50%;
-  background: url(/images/hotel10.jpg) no-repeat;
+  background: url(/images/hotel1.jpg) no-repeat;
   background-size: cover;
   background-position: 0 80%;
 }
@@ -171,9 +198,15 @@
   position: absolute;
   bottom: 0px;
   right: 0px;
-  color: #333;
+  color: #fff;
   font-size: 6vw;
   line-height: 0.8;
+}
+
+.container article:nth-child(n+2) {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
 }
 
 .container article:nth-child(2) {
@@ -183,75 +216,160 @@
 
 .container article:nth-child(2) .txt2 {
   color: #000;
-  margin: 28px 20px;
 }
 
-.container article:nth-child(2) .txt2 strong {
-  font-size: 1.375vw;
-  font-weight: normal;
-}
-
-.container article:nth-child(2) .txt2 p {
-  font-size: 0.9vw;
-  opacity: .7;
+.container article:nth-child(2) .txt2 b {
+  font-size: 1.375em;
 }
 
 .container article:nth-child(3) {
   background: #c6f6fa;
 }
 
+.container article:nth-child(3)::after {
+  content: "\f021";
+  font-family: 'Line Awesome Free';
+  font-weight: 900;
+  font-size: 17em;
+  color: #fff;
+  display: block;
+  position: absolute;
+  bottom: -110px;
+  right: -50px;
+  -webkit-animation: ani-sync 10s  infinite linear;
+          animation: ani-sync 10s  infinite linear;
+}
+
+@-webkit-keyframes ani-sync {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
+@keyframes ani-sync {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(359deg);
+            transform: rotate(359deg);
+  }
+}
+
 .container article:nth-child(4) {
-  background: rgba(0, 0, 0, 0.25);
+  background-image: url(/images/hotel6.jpg);
 }
 
 .container article:nth-child(5) {
-  background: rgba(0, 0, 0, 0.3);
+  background-image: url(/images/hotel2.jpg);
 }
 
 .container article:nth-child(6) {
   width: 40%;
-  background: rgba(0, 0, 0, 0.35);
+  background: #fff;
 }
 
 .container article:nth-child(7) {
-  background: rgba(0, 0, 0, 0.4);
+  background-image: url(/images/hotel12.jpg);
 }
 
 .container article:nth-child(8) {
-  background: rgba(0, 0, 0, 0.45);
+  background: #fff;
 }
 
 .container article:nth-child(9) {
   width: 40%;
-  background: rgba(0, 0, 0, 0.5);
+  background-image: url(/images/hotel3.jpg);
 }
 
 .container article:nth-child(10) {
-  background: rgba(0, 0, 0, 0.55);
+  background-image: url(/images/hotel4.jpg);
 }
 
 .container article:nth-child(11) {
-  background: rgba(0, 0, 0, 0.6);
+  background: #E6F5FC;
 }
 
 .container article:nth-child(12) {
-  background: rgba(0, 0, 0, 0.65);
+  background-image: url(/images/hotel5.jpg);
 }
 
 @media screen and (max-width: 1599px) {
   .wrap {
     padding-left: 0;
   }
-  header {
+  #header {
     position: static;
     width: 100%;
-    height: 80px;
+    height: 115px;
+    padding: 30px 20px 20px 41px;
+  }
+  #header .logo {
+    width: 63px;
+    position: absolute;
+    top: 30px;
+    left: 93px;
+  }
+  #header #gnb {
+    float: right;
+    margin: 0;
+  }
+  #header #gnb ul {
+    overflow: auto;
+  }
+  #header #gnb li {
+    float: left;
+  }
+  #header #gnb li:first-child a::before {
+    content: "\f594";
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+  }
+  #header #gnb li:nth-child(2) a::before {
+    content: "\f0b0";
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+  }
+  #header #gnb li:nth-child(3) a::before {
+    content: "\f64a";
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+  }
+  #header #gnb li:last-child a::before {
+    content: "\f2e7";
+    font-family: 'Line Awesome Free';
+    font-weight: 900;
+  }
+  #header #gnb a {
+    padding: 15px 36px;
+    background-color: #fff;
+    color: #000;
+    font-size: 1.25em;
+  }
+  #header #gnb a:hover {
+    color: #a08119;
+    background-color: #fff;
+  }
+  .util {
+    height: 57px;
+    padding: 10px 0;
+  }
+  .util .col_left, .util .col_right {
+    font-size: 1.2em;
+  }
+  .util .col_left a, .util .col_right a {
+    padding: 0 15px;
   }
   /* 스크롤 생길 수 있도록(찌그러지지 않게) */
   .container {
     height: auto;
     /* 높이의 디폴트 값 auto */
-    overflow: auto;
     /* float 넣어서 */
   }
   .container article {

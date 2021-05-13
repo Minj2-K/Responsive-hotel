@@ -1,7 +1,6 @@
 @charset "UTF-8";
 @import url(./reset.css);
 
-// body { background: url(/1-1599이상.png) 0 0 no-repeat;}.wrap {opacity: 0.5;}
 
 // 디자인과 맞추기 위한 배경, 후에 지울 것임
 
@@ -45,14 +44,15 @@ $gold : rgb(160, 129, 25);
             padding: 8px 0 8px 60px;
 
             &:hover {
-                color: $gold;
+                color: $w;
+                background-color: $gold;
             }
         }
     }
 
     .nav-goto {
         position: absolute;
-        bottom: 0;
+        bottom: 10px;
         left: 0;
         right: 0;
         /* header에 이미 fixed있어서 relative 필요 없음 */
@@ -61,12 +61,12 @@ $gold : rgb(160, 129, 25);
         .lst-goto {
             overflow: auto;
             /* 떠있는 li 인식시키기 */
-            padding-left: 45px;
+            padding-left: 35px;
 
             li {
                 float: left;
-
                 // display:inline-block 도 가능
+
                 &:last-child a::after {
                     display: none;
                 }
@@ -150,6 +150,12 @@ $gold : rgb(160, 129, 25);
 
         li {
             float: left;
+            &:last-child a::after{
+                content: "\f107";
+                font-family: 'Line Awesome Free';
+                font-weight: 900;
+                margin-left: 10px;
+            }
         }
     }
 
@@ -185,83 +191,121 @@ $height : 25%;
         float: left;
         width: $width;
         height: $height;
+        padding: 30px;
         position: relative;
+        transition: all .5s ;
+        overflow: hidden;
 
+        h2 {
+            font-size: 1.375em;
+            margin-bottom: 5px;
+        }
+
+        b {
+            display: block;
+            margin-bottom: 3px;
+            font-size: 1.375em;
+        }
+
+        p {
+            opacity: 0.7;
+        }
 
         &:first-child {
             width: $width*3;
             height: $height*2;
-            background: url(/images/hotel10.jpg) no-repeat;
+
+            background: url(/images/hotel1.jpg) no-repeat;
             background-size: cover;
             background-position: 0 80%;
 
             strong {
-                position: absolute; bottom: 0px; right: 0px;
-                color: #333; font-size: 6vw; line-height: 0.8;
+                position: absolute;
+                bottom: 0px;
+                right: 0px;
+                color: #fff;
+                font-size: 6vw;
+                line-height: 0.8;
             }
         }
 
+        &:nth-child(n+2) {
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: cover;
+        }
 
         &:nth-child(2) {
             width: $width*2;
             background: $w;
-            
+
+            .txt2 {
                 color: $b;
-                margin: 28px 20px;
-                strong{
-                    font-size: 1.375vw; font-weight: normal;
+                b {
+                    font-size: 1.375em;
                 }
-                p{
-                    font-size: 0.9vw; 
-                    opacity: .7;
-                
             }
         }
 
         &:nth-child(3) {
             background: #c6f6fa;
+            &::after {
+                content: "\f021";
+                font-family: 'Line Awesome Free';
+                font-weight: 900; font-size: 17em;
+                color: $w;
+                display: block;
+                position: absolute; bottom: -110px; right: -50px;
+                animation : ani-sync 10s  infinite linear;
+            }
+            @keyframes ani-sync{
+                0%{transform: rotate(0deg);}
+                100%{transform: rotate(359deg);}
+            }
+           
         }
 
         &:nth-child(4) {
-            background: rgba($b, 0.25);
+            background-image: url(/images/hotel6.jpg);
         }
 
         &:nth-child(5) {
-            background: rgba($b, 0.3);
+            background-image: url(/images/hotel2.jpg);
         }
 
         &:nth-child(6) {
             width: $width*2;
-            background: rgba($b, 0.35);
+            background: $w;
+
         }
 
         &:nth-child(7) {
-            background: rgba($b, 0.4);
+            background-image: url(/images/hotel12.jpg);
         }
 
         &:nth-child(8) {
-            background: rgba($b, 0.45);
+            background: $w;
         }
 
         &:nth-child(9) {
             width: $width*2;
-            background: rgba($b, 0.5);
+            background-image: url(/images/hotel3.jpg);
         }
 
         &:nth-child(10) {
-            background: rgba($b, 0.55);
+            background-image: url(/images/hotel4.jpg);
         }
 
         &:nth-child(11) {
-            background: rgba($b, 0.6);
+            background: #E6F5FC;
         }
 
         &:nth-child(12) {
-            background: rgba($b, 0.65);
+            background-image: url(/images/hotel5.jpg);
         }
-
     }
 }
+
 
 // width 1599px 이하일 경우
 @media screen and (max-width: 1599px) {
@@ -269,11 +313,75 @@ $height : 25%;
         padding-left: 0;
     }
 
-    header {
+    #header {
         position: static;
         width: 100%;
-        height: 80px;
+        height: 115px;
+        padding: 30px 20px 20px 41px;
+
+        .logo{
+            width: 63px; 
+            position: absolute; top:30px; left: 93px;
+        }
+
+        #gnb{
+            float: right;
+            margin: 0;
+           
+
+            ul{
+                overflow: auto;
+               
+            }
+            li{
+                float: left;
+                &:first-child a::before{
+                    content: "\f594";
+                    font-family: 'Line Awesome Free';
+                    font-weight: 900;
+                }
+                &:nth-child(2) a::before{
+                    content: "\f0b0";
+                    font-family: 'Line Awesome Free';
+                     font-weight: 900;
+                }
+                &:nth-child(3) a::before{
+                    content: "\f64a";
+                    font-family: 'Line Awesome Free';
+                    font-weight: 900;
+                }
+                &:last-child a::before{
+                    content: "\f2e7";
+                    font-family: 'Line Awesome Free';
+                    font-weight: 900;
+                }
+                
+            }
+            a{
+                padding: 15px 36px ;
+                background-color: #fff;
+                color: $b;
+                font-size: 1.25em;
+                &:hover{
+                    color: $gold;
+                    background-color: #fff;
+                }
+
+            }
+        }
+
     }
+.util{
+    height: 57px;
+    padding: 10px 0;
+    .col_left, .col_right{
+        font-size: 1.2em;
+        a{
+            padding: 0 15px;
+        }
+    }
+}
+
 
     $height : 250px;
 
@@ -281,7 +389,6 @@ $height : 25%;
     .container {
         height: auto;
         /* 높이의 디폴트 값 auto */
-        overflow: auto;
 
         /* float 넣어서 */
         article {
