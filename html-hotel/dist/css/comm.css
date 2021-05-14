@@ -15,10 +15,10 @@
 
 #header .logo a {
   display: block;
-  width: 63px;
-  height: 55px;
+  width: 137px;
+  height: 109px;
   margin: 0 auto;
-  background: url(/images/logo2.gif) 0 0 no-repeat;
+  background: url(/images/logo_revised.png) 0 0 no-repeat;
   text-indent: -9999px;
 }
 
@@ -180,10 +180,12 @@
   display: block;
   margin-bottom: 3px;
   font-size: 1.375em;
+  letter-spacing: -1px;
 }
 
 .container article p {
   opacity: 0.7;
+  letter-spacing: -0.5px;
 }
 
 .container article:first-child {
@@ -307,18 +309,21 @@
   #header {
     position: static;
     width: 100%;
-    height: 115px;
-    padding: 30px 20px 20px 41px;
+    height: 83px;
   }
-  #header .logo {
-    width: 63px;
+  #header .logo a {
+    width: 250px;
+    height: 55px;
     position: absolute;
-    top: 30px;
-    left: 93px;
+    top: 20px;
+    left: 39px;
+    background: url(/images/logo2_revised.png) 0 0 no-repeat;
   }
   #header #gnb {
     float: right;
-    margin: 0;
+    margin: 0px;
+    padding: 0 50px 0 0;
+    margin-top: -15px;
   }
   #header #gnb ul {
     overflow: auto;
@@ -347,7 +352,6 @@
     font-weight: 900;
   }
   #header #gnb a {
-    padding: 15px 36px;
     background-color: #fff;
     color: #000;
     font-size: 1.25em;
@@ -355,16 +359,6 @@
   #header #gnb a:hover {
     color: #a08119;
     background-color: #fff;
-  }
-  .util {
-    height: 57px;
-    padding: 10px 0;
-  }
-  .util .col_left, .util .col_right {
-    font-size: 1.2em;
-  }
-  .util .col_left a, .util .col_right a {
-    padding: 0 15px;
   }
   /* 스크롤 생길 수 있도록(찌그러지지 않게) */
   .container {
@@ -390,12 +384,14 @@
 }
 
 @media screen and (max-width: 1280px) {
-  .container {
-    /* 우선순위에 밀리지 않기 위해 */
+  #header #gnb a {
+    font-size: 1.2em;
+    padding-left: 50px;
   }
   .container article {
     width: 25%;
     height: 250px;
+    /* 우선순위에 밀리지 않기 위해 */
   }
   .container article:first-child {
     width: 75%;
@@ -419,6 +415,12 @@
 }
 
 @media screen and (max-width: 1023px) {
+  #header #gnb {
+    padding-right: 40px;
+  }
+  #header #gnb a {
+    font-size: 1em;
+  }
   .container article {
     width: 33.333%;
   }
@@ -438,6 +440,13 @@
 }
 
 @media screen and (max-width: 779px) {
+  #header #gnb {
+    padding-right: 10px;
+  }
+  #header #gnb a {
+    font-size: 0.875rem;
+    padding: 8px 0 8px 15px;
+  }
   .container article {
     width: 50%;
   }
@@ -450,8 +459,31 @@
 }
 
 @media screen and (max-width: 639px) {
-  header {
+  #header {
     height: 120px;
+    padding: 0;
+  }
+  #header .logo {
+    position: relative;
+    height: 55px;
+  }
+  #header .logo a {
+    position: absolute;
+    top: 10px;
+    left: 25%;
+    right: 25%;
+  }
+  #header #gnb {
+    padding: 0;
+    width: 85%;
+    float: none;
+    margin: 34px auto 0 auto;
+  }
+  #header #gnb a {
+    padding: 0 4.7vw;
+  }
+  #header #gnb a::before {
+    display: none;
   }
   .util {
     display: none;
@@ -472,7 +504,7 @@
   .wrap {
     position: relative;
   }
-  header {
+  #header {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -480,12 +512,19 @@
             transform: translate(-50%, -50%);
     width: 80%;
     height: 30vh;
+    z-index: 1;
+  }
+  #header .logo a {
+    width: 131px;
+    height: 109px;
+    background: url(/images/logo2_revised_transparent.png) 0 0 no-repeat;
   }
   .container {
     height: auto;
   }
   .container article:first-child {
     height: 100vh;
+    background-position: center;
   }
   .container article:nth-child(n+2) {
     display: none;
